@@ -5,8 +5,6 @@
     dest: "/etc/systemd/system/{{ systemd_service[item].service_name | default(item) }}.service"
     mode: 0664
   with_items: "{{ systemd_service | list }}"
-  notify:
-    - restart service
   tags:
     - systemd-service
 
